@@ -15,7 +15,7 @@ const modalAddItem = (state, action) => {
                 visible: false
             }
         default:
-            return state.infoWindow;
+            return state.modalAddItem;
     }
 }
 

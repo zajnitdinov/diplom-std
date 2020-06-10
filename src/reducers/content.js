@@ -1,14 +1,24 @@
+import {dataWeek} from "../services/data";
+
 const content = (state, action) => {
     if (state === undefined){
         return {
-            header: 'Сегодня'
+            header: 'Сегодня',
+            data: [],
+            events: []
         }
     }
-
+    console.log(state, action);
     switch (action.type) {
         case 'TOGGLE_MENU_ITEM':
             return {
-                header: action.payload
+                ...state.content,
+                header: action.payload,
+            }
+        case 'FETCH_TASKS_SUCCESS':
+            return {
+                ...state.content,
+                data: action.payload
             }
         default:
             return state.content;

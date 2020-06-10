@@ -9,7 +9,7 @@ class AddItemButton extends Component {
         return (
             <Button
                 onClick={openModalAddItem}
-                style={{position: 'absolute', bottom: '30px', left: '80px'}}
+                style={{top: '-10px', left: '10px'}}
                 type="primary"
                 shape="circle"
             >+</Button>

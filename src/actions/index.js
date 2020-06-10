@@ -1,14 +1,5 @@
-const openInfo = () => {
-    return {
-        type: 'OPEN_INFO'
-    }
-}
-
-const closeInfo = () => {
-    return{
-        type: 'CLOSE_INFO'
-    }
-}
+import DatabaseService from "../services/database-service";
+const db = new DatabaseService();
 
 const openModalAddItem = () => {
     return {
@@ -26,13 +17,19 @@ const toggleMenuItem = payload => {
     return {
         type: 'TOGGLE_MENU_ITEM',
         payload
-    }
+    };
+}
+const fetchTasks = async (dispatch) => {
+    const data = await db.getTasks();
+    return await dispatch ({
+        type: 'FETCH_TASKS_SUCCESS',
+        payload: data
+    })
 }
 
 export {
-    openInfo,
-    closeInfo,
     openModalAddItem,
     closeModalAddItem,
-    toggleMenuItem
+    toggleMenuItem,
+    fetchTasks
 }

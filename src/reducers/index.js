@@ -6,7 +6,7 @@ const reducer = (state , action) => {
     return{
         infoWindow: infoWindow(state, action),
         modalAddItem: modalAddItem(state, action),
-        content: content(state, action)
+        content: content(state, action),
     }
 }
 
