@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Form, Modal, Input, DatePicker, Select} from "antd";
 import {connect} from "react-redux";
-import {closeModalAddItem, fetchTasks} from "../../actions";
+import {closeModalAddItem} from "../../actions";
 
 const options = ['Зайнитдинов Роберт Ринатович', 'Аксютин Павел Александрович', "Козырев Юрий Владимирович", "Пекарская Татьяна Павловна"];
 
@@ -155,7 +155,7 @@ const mapStateToProps = ({ modalAddItem: {visible}, content: {header} }) => {
 const mapDispatchToProps = dispatch => {
     return {
         closeModalAddItem: () => dispatch(closeModalAddItem()),
-        fetchTasks: () => fetchTasks(dispatch)
+        //fetchTasks: () => fetchTasks(dispatch)
     }
 }
 

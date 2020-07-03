@@ -17,7 +17,7 @@ const content = (state, action) => {
             return {
                 ...state.content,
                 data: action.payload
-            }
+            };
         default:
             return state.content;
     }

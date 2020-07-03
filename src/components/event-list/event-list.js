@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Space, Table} from "antd";
-import {events} from "../../services/data";
 import {connect} from "react-redux";
 
 class EventList extends Component {
@@ -56,7 +55,7 @@ class EventList extends Component {
             <Table
                 style={{padding: '10px', marginBottom: '20px'}}
                 columns={this.columns}
-                dataSource={events}
+                //dataSource={events}
                 pagination={false}
             />
         );

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Space, Table} from "antd";
-import {employees} from "../../services/data";
 
 class EmployeesList extends Component {
     columns = [
@@ -39,7 +38,7 @@ class EmployeesList extends Component {
             <Table
                 style={{padding: '10px', marginBottom: '20px'}}
                 columns={this.columns}
-                dataSource={employees}
+                //dataSource={employees}
                 pagination={false}
             />
         );

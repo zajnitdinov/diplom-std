@@ -11,7 +11,7 @@ export default class DatabaseService {
         return await res.json();
     };
 
-    getTasks = async () => {
+    /*getTasks = async () => {
         const res = await this.getResource('/tasks');
         return res.map(this._transformTasks);
     }
@@ -26,5 +26,9 @@ export default class DatabaseService {
             creator: task.firstname + ' ' + task.lastname + ' ' + task.middlename,
             executor: 'Аксютин Павел Александрович'
         }
+    }*/
+
+    getUserTasks = async (id) => {
+        return await this.getResource(`/usertasks/${id}`);
     }
 }

@@ -4,7 +4,6 @@ import Highlighter from 'react-highlight-words';
 import {connect} from "react-redux";
 import {SearchOutlined} from '@ant-design/icons';
 import DatabaseService from "../../services/database-service";
-import {fetchTasks} from "../../actions";
 
 class TaskList extends Component {
     state = {
@@ -13,7 +12,6 @@ class TaskList extends Component {
         data: [],
         selectedRowKeys: []
     }
-    db = new DatabaseService();
     getColumnSearchProps = dataIndex => ({
         filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
             <div style={{ padding: 8 }}>
@@ -153,7 +151,7 @@ class TaskList extends Component {
         }
     ]
     componentDidMount() {
-        this.props.fetchTasks();
+        this.props.fetchTasks(this.props.id);
     }
     getDataByDay = () => {
         const {header, data} = this.props;
@@ -180,15 +178,19 @@ class TaskList extends Component {
     }
 }
 
-const mapStateToProps = ({content: {data, header}}) => {
+const mapStateToProps = ({user: {id}, content: {data, header}}) => {
     return {
-        data, header
+        data, header, id
     }
 };
 
 const mapDispatchToProps = dispatch => {
+    const db = new DatabaseService();
     return {
-        fetchTasks: () => fetchTasks(dispatch)
+        fetchTasks: async (id) => dispatch({
+            type: 'FETCH_TASKS_SUCCESS',
+            payload: await db.getUserTasks(1)
+        })
     }
 }
 
