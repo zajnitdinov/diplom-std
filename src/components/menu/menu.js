@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Divider, Menu as AntMenu} from "antd";
+import {Menu as AntMenu} from "antd";
 import {connect} from "react-redux";
 import {toggleMenuItem} from "../../actions";
 
@@ -16,7 +16,6 @@ class Menu extends Component {
                         {item}
                     </AntMenu.Item>
                 ))}
-                <Divider/>
                 {menuAdminItems.map((item, idx) => (
                     <AntMenu.Item  key={idx+4} onClick={() => toggleMenuItem(item)}>
                         {item}

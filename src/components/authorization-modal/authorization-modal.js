@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Form, Input, Modal} from "antd";
-import {connect} from "react-redux";
 
 class AuthorizationModal extends Component {
     state = {
@@ -13,7 +12,7 @@ class AuthorizationModal extends Component {
                     backgroundColor: "white",
                     filter: "blur(10px)"
                 }}
-                visible={this.state.visible}
+                // visible={this.state.visible}
                 onOk={() => {this.setState({visible: false})}}
                 title='Авторизация'>
                 <Form.Item>

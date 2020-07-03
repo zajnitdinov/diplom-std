@@ -1,5 +1,3 @@
-import {dataWeek} from "../services/data";
-
 const content = (state, action) => {
     if (state === undefined){
         return {

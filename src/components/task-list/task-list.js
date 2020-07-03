@@ -167,7 +167,7 @@ class TaskList extends Component {
     };
     render() {
         const {header} = this.props;
-        const {data, selectedRowKeys} = this.state;
+        const {selectedRowKeys} = this.state;
         return (
             <Table
                 rowSelection={{selectedRowKeys, onChange: this.onSelectChange}}

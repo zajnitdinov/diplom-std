@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Form, Modal, Input, DatePicker, Select} from "antd";
 import {connect} from "react-redux";
 import {closeModalAddItem, fetchTasks} from "../../actions";
-import DatabaseService from "../../services/database-service";
 
 const options = ['Зайнитдинов Роберт Ринатович', 'Аксютин Павел Александрович', "Козырев Юрий Владимирович", "Пекарская Татьяна Павловна"];
 
@@ -24,7 +23,7 @@ class Task extends Component {
     };
     handleOk = async () => {
         const {title, description, date} = this.state;
-        let req = await fetch('http://localhost:8000/tasks', {
+        await fetch('http://localhost:8000/tasks', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -77,7 +76,8 @@ class Task extends Component {
         )
     }
 }
-class Events extends Component {
+
+/*class Events extends Component {
     state = {
         selectedItems: [],
         title: '',
@@ -123,8 +123,8 @@ class Events extends Component {
             </Form>
         )
     }
-}
-class Employees extends Component {
+}*/
+/*class Employees extends Component {
     handleChange = selectedItems => {
         this.setState({ selectedItems });
     };
@@ -144,7 +144,7 @@ class Employees extends Component {
             </Form>
         )
     }
-}
+}*/
 
 const mapStateToProps = ({ modalAddItem: {visible}, content: {header} }) => {
     return {
