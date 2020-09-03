@@ -2,8 +2,7 @@ const content = (state, action) => {
     if (state === undefined){
         return {
             header: 'Сегодня',
-            data: [],
-            events: []
+            data: []
         }
     }
     console.log(state, action);
